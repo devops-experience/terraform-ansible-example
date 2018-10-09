@@ -3,13 +3,13 @@ variable "public_key_path" {
 }
 
 variable "key_name" {
-  default = "terraform-ansible-example-key"
+  default = "example-key"
 }
 
 variable "tags" {
   type = "map"
   default = {
-    Repo = "https://github.com/startup-systems/terraform-ansible-example"
+    Repo = "https://github.com/jpigree/terraform-ansible-example"
     Terraform = true
   }
 }

@@ -1,5 +1,5 @@
 locals {
-  # The default username for our AMI
+   # The default username for our AMI
   vm_user = "ubuntu"
 }
 
