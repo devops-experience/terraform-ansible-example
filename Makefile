@@ -1,6 +1,7 @@
 .ONESHELL:
 
 default: plan
+inventory_file:=$(shell mktemp)
 
 ##############################
 # Terraform
@@ -29,7 +30,8 @@ provision:
 
 configure:
 	cd ansible
-	TF_STATE=../terraform/terraform.tfstate ansible-playbook "--inventory-file=$(which terraform-inventory)" sites/example.yml
+	TF_STATE=$(CURDIR)/terraform/terraform.tfstate terraform-inventory --inventory > "$(inventory_file)"
+	ansible-playbook --inventory="$(inventory_file)" provision.yml
 
 #############################
 # Chained
