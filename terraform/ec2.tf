@@ -46,6 +46,8 @@ resource "aws_instance" "web" {
     # The connection block tells our provisioner how to communicate with the resource (instance)
     connection {
       user = "${local.vm_user}"
+      private_key = "${file(var.private_key_path)}"
+      agent = false
     }
   }
 }
