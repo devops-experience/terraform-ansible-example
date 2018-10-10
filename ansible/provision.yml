@@ -1,8 +1,7 @@
 ---
-- hosts: web
-  name: configuration play
-  user: ubuntu
 
+- hosts: web
+  user: ubuntu
   # https://gist.github.com/gwillem/4ba393dceb55e5ae276a87300f6b8e6f#gistcomment-1914049
   gather_facts: false
   pre_tasks:
@@ -13,7 +12,6 @@
     - setup: # aka gather_facts
 
   tasks:
-
     - name: Install nginx
       become: true
       apt:
