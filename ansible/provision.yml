@@ -5,10 +5,14 @@
   # https://gist.github.com/gwillem/4ba393dceb55e5ae276a87300f6b8e6f#gistcomment-1914049
   gather_facts: false
   pre_tasks:
+    - command: test -e /usr/bin/python
+      register: result
+      ignore_errors: True
+
     - name: Install python for Ansible
       become: true
-      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
-      changed_when: false
+      raw: || $(apt-get update && apt-get install -y python-minimal)
+      when: result is failed
     - setup: # aka gather_facts
 
   tasks:
