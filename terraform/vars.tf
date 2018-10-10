@@ -13,7 +13,6 @@ variable "key_name" {
 variable "tags" {
   type = "map"
   default = {
-    Repo = "https://github.com/jpigree/terraform-ansible-example"
     Terraform = true
   }
 }
