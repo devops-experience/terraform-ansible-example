@@ -30,7 +30,7 @@ provision:
 
 configure:
 	cd ansible
-	TF_STATE=$(CURDIR)/terraform/terraform.tfstate terraform-inventory --inventory > "$(inventory_file)"
+	TF_STATE=$(CURDIR)/terraform terraform-inventory --inventory > "$(inventory_file)"
 	ansible-playbook --inventory="$(inventory_file)" web.yml
 
 #############################
