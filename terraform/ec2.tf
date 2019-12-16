@@ -26,7 +26,7 @@ resource "aws_key_pair" "auth" {
 }
 
 resource "aws_instance" "web" {
-  instance_type = "t2.micro"
+  instance_type = "t3.small"
   tags = var.tags
   ami = data.aws_ami.ubuntu.id
 
